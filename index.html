@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <title>ហាងលក់ Skin MLBB</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      background-color: #fefefe;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .item {
+      padding: 10px;
+      background: white;
+      margin: 10px auto;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .item:hover {
+      background-color: #e6f7ff;
+    }
+    .qr {
+      width: 150px;
+      margin-top: 15px;
+    }
+    .payment {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🛒 ហាងលក់ Skin MLBB</h1>
+
+  <div class="item" data-price="1">🎯 Fanny - $1</div>
+  <div class="item" data-price="2">🔥 Alucard - $2</div>
+  <div class="item" data-price="3">⚡ Hayabusa - $3</div>
+  <div class="item" data-price="2">💥 Layla - $2</div>
+
+  <p>សរុប៖ $<span id="total">0</span></p>
+
+  <div class="payment">
+    <h2>📲 វិធីបង់ប្រាក់</h2>
+    <p>ស្កេន KHQR ដើម្បីបង់</p>
+    <img class="qr" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/QR_code_example.svg/240px-QR_code_example.svg.png" alt="KHQR">
+    <p>💳 ABA / ACLEDA / Wing សាកសម</p>
+  </div>
+
+  <script>
+    let total = 0;
+    document.querySelectorAll('.item').forEach(el => {
+      el.addEventListener('click', () => {
+        const price = parseFloat(el.getAttribute('data-price'));
+        total += price;
+        document.getElementById('total').textContent = total.toFixed(2);
+      });
+    });
+  </script>
+
+</body>
+</html>
